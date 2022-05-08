@@ -28,7 +28,6 @@
 <meta property="og:description" content="谷粒商城基础篇一、项目简介1.1 项目背景1.2 电商模式市面上有 5 种常见的电商模式 B2B、B2B、C2B、C2C、O2O 1.2.1 B2B 模式B2B(Business to Business)，是指商家和商家建立的商业关系，如 阿里巴巴， 1.2.2 B2C 模式B2C(Business to Consumer) 就是我们经常看到的供应商直接把商品买个用户，即 “商对客” 模式，也就是">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="http://example.com/images/%E8%B0%B7%E7%B2%92%E5%95%86%E5%9F%8E-%E5%BE%AE%E6%9C%8D%E5%8A%A1%E6%9E%B6%E6%9E%84%E5%9B%BE.jpg">
-<meta property="og:image" content="http://example.com/images/image-20201015112852613.png">
 <meta property="og:image" content="http://example.com/images/image-20201015101317095.png">
 <meta property="og:image" content="http://example.com/images/image-20201015103427667.png">
 <meta property="og:image" content="http://example.com/images/image-20201015103547907.png">
@@ -122,7 +121,7 @@
 <meta property="og:image" content="http://example.com/images/image-20201025100138990.png">
 <meta property="og:image" content="http://example.com/images/image-20201025100424345.png">
 <meta property="article:published_time" content="2022-05-03T07:02:24.000Z">
-<meta property="article:modified_time" content="2022-05-08T03:19:34.393Z">
+<meta property="article:modified_time" content="2022-05-08T13:58:24.260Z">
 <meta property="article:author" content="Jonebs">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="http://example.com/images/%E8%B0%B7%E7%B2%92%E5%95%86%E5%9F%8E-%E5%BE%AE%E6%9C%8D%E5%8A%A1%E6%9E%B6%E6%9E%84%E5%9B%BE.jpg">
@@ -317,7 +316,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2022-05-08 11:19:34" itemprop="dateModified" datetime="2022-05-08T11:19:34+08:00">2022-05-08</time>
+      <time title="修改时间：2022-05-08 21:58:24" itemprop="dateModified" datetime="2022-05-08T21:58:24+08:00">2022-05-08</time>
     </span>
 
   
@@ -340,7 +339,7 @@
 <h3 id="1-4-项目架构图"><a href="#1-4-项目架构图" class="headerlink" title="1.4 项目架构图"></a>1.4 项目架构图</h3><p>1、项目微服务架构图</p>
 <p><img src="/../images/%E8%B0%B7%E7%B2%92%E5%95%86%E5%9F%8E-%E5%BE%AE%E6%9C%8D%E5%8A%A1%E6%9E%B6%E6%9E%84%E5%9B%BE.jpg"></p>
 <p>2、微服务划分图</p>
-<p><img src="/../images/image-20201015112852613.png" alt="image-20201015112852613"></p>
+<p>x #下载镜像docker pull xxx​#以交互模式(打开终端模式)启动一个容器docker run -it xxx &#x2F;bin&#x2F;bash​#列出当前所有正在运行的容器docker ps [OPTIONS]    OPTIONS说明（常用）：     -a :列出当前所有正在运行的容器+历史上运行过的-l :显示最近创建的容器。    -n：显示最近n个创建的容器。    -q :静默模式，只显示容器编号。    #退出容器（两种退出方式）    exit        run进去容器，exit退出，容器停止    ctrl+p+q        run进去容器，ctrl+p+q退出，容器不停止        #启动已停止运行的容器docker start 容器ID或者容器名​#重启容器docker restart 容器ID或者容器名​#停止容器docker stop 容器ID或者容器名​#强制停止容器docker kill 容器ID或容器名​#删除已停止的容器docker rm 容器ID​#启动守护式容器(后台服务器)docker run -d 容器名    前台交互式启动: docker run -it redis:6.0.8    后台守护式启动:docker run -d redis:6.0.8​#查看容器日志docker logs 容器ID​#查看容器内运行的进程 docker top 容器ID​#查看容器内部细节docker inspect 容器ID​​#进入正在运行的容器并以命令行交互docker exec -it 容器ID bashShell#重新进入docker attach 容器ID#上述两个区别  推荐大家使用 docker exec 命令，因为退出容器终端，不会导致容器的停止    attach 直接进入容器启动命令的终端，不会启动新的进程用exit退出，会导致容器的停止    exec 是在容器中打开新的终端，并且可以启动新的进程用exit退出，不会导致容器的停止​#从容器内拷贝文件到主机上docker cp  容器ID:容器内路径 目的主机路径​​bash</p>
 <h3 id="1-5-项目技术-amp-特色"><a href="#1-5-项目技术-amp-特色" class="headerlink" title="1.5 项目技术&amp;特色"></a>1.5 项目技术&amp;特色</h3><ul>
 <li>前后分离开发，并开发基于 vue 的 后台管理系统</li>
 <li>SpringCloud 全新的解决方案</li>
@@ -1566,13 +1565,10 @@
 
           <div class="post-nav">
             <div class="post-nav-item">
-                <a href="/2022/04/24/MarkDown/" rel="prev" title="Markdown的语法">
-                  <i class="fa fa-chevron-left"></i> Markdown的语法
-                </a>
             </div>
             <div class="post-nav-item">
-                <a href="/2022/05/05/leetcode/" rel="next" title="leetcode">
-                  leetcode <i class="fa fa-chevron-right"></i>
+                <a href="/2022/05/08/Mall-0/" rel="next" title="docker">
+                  docker <i class="fa fa-chevron-right"></i>
                 </a>
             </div>
           </div>
