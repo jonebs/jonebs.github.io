@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 6.1.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css" integrity="sha256-DfWjNxDkM94fVBWx1H5BMMp0Zq7luBlV8QRcSES7s+0=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"example.com","root":"/","images":"/images","scheme":"Pisces","darkmode":false,"version":"8.11.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":false,"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="一：SpringCloud Alibaba1. 简介1.1：SpringClouid的几大痛点：SpringCloud部分组件停止维护和更新，给开发带来不便; SpringCloud部分环境搭建复杂，没有完善的可视化界面，我们需要大量的二次开发和定制 SpringCloud配置复杂，难以上手，部分配置差别难以区分和合理应用 1.2：SpringCloud Alibaba的优势：阿里使用过的组件经历">
+<meta property="og:type" content="article">
+<meta property="og:title" content="微服务">
+<meta property="og:url" content="http://example.com/2022/05/09/%E5%BE%AE%E6%9C%8D%E5%8A%A1/index.html">
+<meta property="og:site_name" content="GGB&#39;s Blog">
+<meta property="og:description" content="一：SpringCloud Alibaba1. 简介1.1：SpringClouid的几大痛点：SpringCloud部分组件停止维护和更新，给开发带来不便; SpringCloud部分环境搭建复杂，没有完善的可视化界面，我们需要大量的二次开发和定制 SpringCloud配置复杂，难以上手，部分配置差别难以区分和合理应用 1.2：SpringCloud Alibaba的优势：阿里使用过的组件经历">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2022-05-09T12:36:13.000Z">
+<meta property="article:modified_time" content="2022-05-09T13:58:41.817Z">
+<meta property="article:author" content="Jonebs">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="http://example.com/2022/05/09/%E5%BE%AE%E6%9C%8D%E5%8A%A1/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"http://example.com/2022/05/09/%E5%BE%AE%E6%9C%8D%E5%8A%A1/","path":"2022/05/09/微服务/","title":"微服务"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>微服务 | GGB's Blog</title>
+  
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">GGB's Blog</p>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">欢迎您！朋友</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="home fa-fw"></i>首页</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="tags fa-fw"></i>标签</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="th fa-fw"></i>分类</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="archive fa-fw"></i>归档</a></li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%B8%80%EF%BC%9ASpringCloud-Alibaba"><span class="nav-number">1.</span> <span class="nav-text">一：SpringCloud Alibaba</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-%E7%AE%80%E4%BB%8B"><span class="nav-number">1.1.</span> <span class="nav-text">1. 简介</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-1%EF%BC%9ASpringClouid%E7%9A%84%E5%87%A0%E5%A4%A7%E7%97%9B%E7%82%B9%EF%BC%9A"><span class="nav-number">1.1.0.1.</span> <span class="nav-text">1.1：SpringClouid的几大痛点：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#1-2%EF%BC%9ASpringCloud-Alibaba%E7%9A%84%E4%BC%98%E5%8A%BF%EF%BC%9A"><span class="nav-number">1.1.0.2.</span> <span class="nav-text">1.2：SpringCloud Alibaba的优势：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#1-3-%E7%BB%93%E5%90%88SpringCloud-Alibaba%E6%88%91%E4%BB%AC%E6%9C%80%E7%BB%88%E7%9A%84%E6%8A%80%E6%9C%AF%E6%90%AD%E9%85%8D%E6%96%B9%E6%A1%88%EF%BC%9A"><span class="nav-number">1.1.0.3.</span> <span class="nav-text">1.3: 结合SpringCloud Alibaba我们最终的技术搭配方案：</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-Nacos-%E4%BD%9C%E4%B8%BA%E6%B3%A8%E5%86%8C%E4%B8%AD%E5%BF%83"><span class="nav-number">1.2.</span> <span class="nav-text">2. Nacos [作为注册中心]</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-Nacos-%E5%AE%98%E7%BD%91"><span class="nav-number">1.2.0.1.</span> <span class="nav-text">1. Nacos 官网</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-%E5%BC%95%E5%85%A5%E4%BE%9D%E8%B5%96"><span class="nav-number">1.2.0.2.</span> <span class="nav-text">2. 引入依赖</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-%E9%85%8D%E7%BD%AEnacos%E5%9C%B0%E5%9D%80%E5%92%8C%E6%9C%8D%E5%8A%A1%E5%90%8D%E7%A7%B0"><span class="nav-number">1.2.0.3.</span> <span class="nav-text">3.  配置nacos地址和服务名称</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-%E5%90%AF%E5%8A%A8%E7%B1%BB%E6%B7%BB%E5%8A%A0%E6%B3%A8%E8%A7%A3"><span class="nav-number">1.2.0.4.</span> <span class="nav-text">4. 启动类添加注解</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-Nacos-%E4%BD%9C%E4%B8%BA%E9%85%8D%E7%BD%AE%E4%B8%AD%E5%BF%83"><span class="nav-number">1.3.</span> <span class="nav-text">3.  Nacos [作为配置中心]</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-%E5%AF%BC%E5%85%A5%E4%BE%9D%E8%B5%96"><span class="nav-number">1.3.0.1.</span> <span class="nav-text">1. 导入依赖</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-%E5%9C%A8-nacos-%E4%B8%AD%E6%B7%BB%E5%8A%A0%E9%85%8D%E7%BD%AE"><span class="nav-number">1.3.0.2.</span> <span class="nav-text">2. 在 nacos 中添加配置</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-resource-%E4%B8%8B-%E5%88%9B%E5%BB%BAbootstrap-properties"><span class="nav-number">1.3.0.3.</span> <span class="nav-text">3. resource 下 创建bootstrap.properties</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-Controller%E4%B8%AD%E6%B7%BB%E5%8A%A0%E6%B3%A8%E8%A7%A3"><span class="nav-number">1.3.0.4.</span> <span class="nav-text">4. Controller中添加注解</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-Feign-%E8%B0%83%E7%94%A8%E8%BF%9C%E7%A8%8B%E6%9C%8D%E5%8A%A1"><span class="nav-number">1.4.</span> <span class="nav-text">4. Feign[调用远程服务]</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-%E5%AF%BC%E5%85%A5%E4%BE%9D%E8%B5%96-1"><span class="nav-number">1.4.0.1.</span> <span class="nav-text">1. 导入依赖</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-%E5%90%AF%E5%8A%A8%E7%B1%BB%E6%B7%BB%E5%8A%A0%E6%B3%A8%E8%A7%A3"><span class="nav-number">1.4.0.2.</span> <span class="nav-text">2. 启动类添加注解</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-%E8%B0%83%E7%94%A8%E8%80%85%E9%87%8C%E7%BC%96%E5%86%99%E6%8E%A5%E5%8F%A3"><span class="nav-number">1.4.0.3.</span> <span class="nav-text">3. 调用者里编写接口</span></a></li></ol></li></ol></li></ol></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Jonebs"
+      src="https://ggb01.oss-cn-beijing.aliyuncs.com/100511711.jpg">
+  <p class="site-author-name" itemprop="name">Jonebs</p>
+  <div class="site-description" itemprop="description">GGB</div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">5</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author site-overview-item animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/jonebs" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;jonebs" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+  </div>
+
+
+  <div class="links-of-blogroll site-overview-item animated">
+    <div class="links-of-blogroll-title"><i class="link fa-fw"></i>
+      Links
+    </div>
+    <ul class="links-of-blogroll-list">
+        <li class="links-of-blogroll-item">
+          <a href="https://www.baidu.com/" title="https:&#x2F;&#x2F;www.baidu.com" rel="noopener" target="_blank">myblog</a>
+        </li>
+    </ul>
+  </div>
+
+        </div>
+      </div>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2022/05/09/%E5%BE%AE%E6%9C%8D%E5%8A%A1/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="https://ggb01.oss-cn-beijing.aliyuncs.com/100511711.jpg">
+      <meta itemprop="name" content="Jonebs">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="GGB's Blog">
+      <meta itemprop="description" content="GGB">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="微服务 | GGB's Blog">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          微服务
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+      
+
+      <time title="创建时间：2022-05-09 20:36:13 / 修改时间：21:58:41" itemprop="dateCreated datePublished" datetime="2022-05-09T20:36:13+08:00">2022-05-09</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <h1 id="一：SpringCloud-Alibaba"><a href="#一：SpringCloud-Alibaba" class="headerlink" title="一：SpringCloud Alibaba"></a>一：SpringCloud Alibaba</h1><h2 id="1-简介"><a href="#1-简介" class="headerlink" title="1. 简介"></a>1. 简介</h2><h4 id="1-1：SpringClouid的几大痛点："><a href="#1-1：SpringClouid的几大痛点：" class="headerlink" title="1.1：SpringClouid的几大痛点："></a><strong>1.1：SpringClouid的几大痛点：</strong></h4><p>SpringCloud部分组件停止维护和更新，给开发带来不便;</p>
+<p>SpringCloud部分环境搭建复杂，没有完善的可视化界面，我们需要大量的二次开发和定制</p>
+<p>SpringCloud配置复杂，难以上手，部分配置差别难以区分和合理应用</p>
+<h4 id="1-2：SpringCloud-Alibaba的优势："><a href="#1-2：SpringCloud-Alibaba的优势：" class="headerlink" title="1.2：SpringCloud Alibaba的优势："></a><strong>1.2：SpringCloud Alibaba的优势：</strong></h4><p>阿里使用过的组件经历了考验，性能强悍，设计合理，现在开源出来大家用</p>
+<p>成套的产品搭配完善的可视化界面给开发运维带来极大的便利</p>
+<p>搭建简单，学习曲线低。</p>
+<h4 id="1-3-结合SpringCloud-Alibaba我们最终的技术搭配方案："><a href="#1-3-结合SpringCloud-Alibaba我们最终的技术搭配方案：" class="headerlink" title="1.3: 结合SpringCloud Alibaba我们最终的技术搭配方案："></a><strong>1.3: 结合SpringCloud Alibaba我们最终的技术搭配方案：</strong></h4><p>SpringCloud Alibaba - Nacos : 注册中心 (服务发现&#x2F;注册)</p>
+<p>SpringCloud Alibaba- Nacos: 配置中心 (动态配置管理)</p>
+<p>SpringCloud - Ribbon: 负载均衡</p>
+<p>SpringCloud - Feign: 声明式HTTP客户端(调用远程服务)</p>
+<p>SpringCloud Alibaba - Sentinel: 服务容错(限流、降级、熔断)</p>
+<p>SpringCloud - Gateway:  API 网关 (webflux 编程模式)</p>
+<p>SpringCloud - Sleuth:调用链监控</p>
+<p>SpringCloud Alibaba - Seata: 原Fescar, 即分布式事务解决方案</p>
+<h2 id="2-Nacos-作为注册中心"><a href="#2-Nacos-作为注册中心" class="headerlink" title="2. Nacos [作为注册中心]"></a>2. Nacos [作为注册中心]</h2><h4 id="1-Nacos-官网"><a href="#1-Nacos-官网" class="headerlink" title="1. Nacos 官网"></a>1. Nacos 官网</h4><p>​	<a target="_blank" rel="noopener" href="https://nacos.io/zh-cn/docs/quick-start.html">官网地址</a></p>
+<h4 id="2-引入依赖"><a href="#2-引入依赖" class="headerlink" title="2. 引入依赖"></a>2. 引入依赖</h4><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>com.alibaba.cloud<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-cloud-starter-alibaba-nacos-discovery<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="3-配置nacos地址和服务名称"><a href="#3-配置nacos地址和服务名称" class="headerlink" title="3.  配置nacos地址和服务名称"></a>3.  配置nacos地址和服务名称</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#在  application.yml 配置文件中（二选一）</span></span><br><span class="line"><span class="comment">#指定 nacos 地址</span></span><br><span class="line">spring:</span><br><span class="line">  cloud:</span><br><span class="line">    nacos:</span><br><span class="line">      discovery:</span><br><span class="line">        server-addr: 127.0.0.1:8848</span><br><span class="line">  <span class="comment">#指定服务名字      </span></span><br><span class="line">  application:</span><br><span class="line">    name: xxx</span><br><span class="line">    </span><br><span class="line">==============================================================================</span><br><span class="line"></span><br><span class="line"><span class="comment">#在  application.properties 配置文件中（二选一）</span></span><br><span class="line"><span class="comment">#指定服务名字</span></span><br><span class="line">spring.application.name=xxx</span><br><span class="line"><span class="comment">#指定 nacos 地址</span></span><br><span class="line">spring.cloud.nacos.discovery.server-addr=127.0.0.1:8848</span><br></pre></td></tr></table></figure>
+
+<h4 id="4-启动类添加注解"><a href="#4-启动类添加注解" class="headerlink" title="4. 启动类添加注解"></a>4. 启动类添加注解</h4> <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#开启服务注册发现功能</span></span><br><span class="line">@EnableDiscoveryClient </span><br></pre></td></tr></table></figure>
+
+<h2 id="3-Nacos-作为配置中心"><a href="#3-Nacos-作为配置中心" class="headerlink" title="3.  Nacos [作为配置中心]"></a>3.  Nacos [作为配置中心]</h2><p><strong>配置中心优先原则 ， 如果配置中心和当前应用的配置文件配置了相同的相，优先使用配置中心的配置</strong></p>
+<h4 id="1-导入依赖"><a href="#1-导入依赖" class="headerlink" title="1. 导入依赖"></a>1. 导入依赖</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">&lt;dependency&gt;</span><br><span class="line">   &lt;groupId&gt;com.alibaba.cloud&lt;/groupId&gt;</span><br><span class="line">   &lt;artifactId&gt;spring-cloud-starter-alibaba-nacos-config&lt;/artifactId&gt;</span><br><span class="line">&lt;/dependency&gt;</span><br><span class="line"></span><br><span class="line">（注：如何无法获取到nacos配置文件，缺少bootstrap依赖）</span><br><span class="line">&lt;dependency&gt;</span><br><span class="line">     &lt;groupId&gt;org.springframework.cloud&lt;/groupId&gt;</span><br><span class="line">     &lt;artifactId&gt;spring-cloud-starter-bootstrap&lt;/artifactId&gt;</span><br><span class="line">     &lt;version&gt;3.0.2&lt;/version&gt;</span><br><span class="line">&lt;/dependency&gt;</span><br><span class="line">```</span><br></pre></td></tr></table></figure>
+
+<h4 id="2-在-nacos-中添加配置"><a href="#2-在-nacos-中添加配置" class="headerlink" title="2. 在 nacos 中添加配置"></a>2. 在 nacos 中添加配置</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">**命名空间:**</span><br><span class="line">用于进行租户粒度的配置隔离。不同的命名空间下，可以存在相同的 **Group** 或 **DatalD** 的配置。**Namespace**  的常用场景之一是不同环境的配置的区分隔离，例如开发测试环境和生产环境的资源(如配置、服务)隔离等。</span><br><span class="line"></span><br><span class="line">**配置集**</span><br><span class="line"></span><br><span class="line">**一组相关或者不相关的配置项的集合称为配置集**。在系统中，一个配置文件通常就是一个配置集，包含了系统各个方面的配置。例如，一个配置集可能包含了数据源、线程池、日志级别等配置项。</span><br><span class="line"></span><br><span class="line">**配置集ID:**</span><br><span class="line"></span><br><span class="line">Nacos 中的某个配置集的 ID，配置集 ID 是组织划分配置的维度之一，**Data ID** 通常用于组织划分系统的配置集，一个系统或者应用可以包含多个配置集，一个系统应用可以包含多个配置集，每个配置集都可以被一个有意义的名称标识，Data ID 通常采用类 Java 包 如 ( com.taobao.tc.refund.log.level ) 的命名规则保证全局唯一性，此命名规则非强制</span><br><span class="line"></span><br><span class="line">**配置分组：**</span><br><span class="line"></span><br><span class="line">Nacos 中的一组配置集，是组织配置的维度之一，通过一个有意义的字符串，(如 Buy 或 Trade ) 对配置集进行分组，从而区分 Data ID 相同的配置集，当您在 Nacos 上创建一个配置时，如果未填写配置分组的名称，则配置分组的名称默认采用，DEFAULT_GROUP 配置分组的常见场景，不同的应用或组件采用了相同的配置类型，如 database_url 配置和 MQ_topic 配置</span><br></pre></td></tr></table></figure>
+
+
+
+<h4 id="3-resource-下-创建bootstrap-properties"><a href="#3-resource-下-创建bootstrap-properties" class="headerlink" title="3. resource 下 创建bootstrap.properties"></a>3. resource 下 创建bootstrap.properties</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">**bootstrap.properties 配置**</span><br><span class="line"></span><br><span class="line">spring.application.name=xxx <span class="comment"># 服务的名称</span></span><br><span class="line">spring.cloud.nacos.config.server-addr=127.0.0.1:8848  <span class="comment"># 服务注册地址</span></span><br><span class="line">spring.cloud.nacos.config.namespace=ae34901c-9215-4409-ae61-c6b8d6c8f9b0  <span class="comment"># 命名空间地址</span></span><br><span class="line"><span class="comment">#spring.cloud.nacos.config.group=111 # 对应分组</span></span><br><span class="line"></span><br><span class="line">spring.cloud.nacos.config.ext-config[0].data-id=datasource.yml  <span class="comment"># 配置集指定data_id</span></span><br><span class="line">spring.cloud.nacos.config.ext-config[0].group=dev               <span class="comment"># 配置集指定 group 分组</span></span><br><span class="line">spring.cloud.nacos.config.ext-config[0].refresh=<span class="literal">true</span>            <span class="comment"># 是否动态刷新 在配置中心修改后 微服务自动刷新</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 新版本用如下格式</span></span><br><span class="line">spring.cloud.nacos.config.extension-configs[0].data-id=datasource.yml</span><br><span class="line">spring.cloud.nacos.config.extension-configs[0].group=dev</span><br><span class="line">spring.cloud.nacos.config.extension-configs[0].refresh=<span class="literal">true</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">```</span><br></pre></td></tr></table></figure>
+
+<h4 id="4-Controller中添加注解"><a href="#4-Controller中添加注解" class="headerlink" title="4. Controller中添加注解"></a>4. Controller中添加注解</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#刷新对应controller（修改了nacos配置文件内容后，在不重启服务器的情况下，可以实现同步更新）</span></span><br><span class="line">@RefreshScope</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="4-Feign-调用远程服务"><a href="#4-Feign-调用远程服务" class="headerlink" title="4. Feign[调用远程服务]"></a>4. Feign[调用远程服务]</h2><p><strong>前提: 服务都要被注册进注册中心</strong></p>
+<h4 id="1-导入依赖-1"><a href="#1-导入依赖-1" class="headerlink" title="1. 导入依赖"></a>1. 导入依赖</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#旧版本导入一个就行</span></span><br><span class="line">&lt;dependency&gt;</span><br><span class="line">    &lt;groupId&gt;org.springframework.cloud&lt;/groupId&gt;</span><br><span class="line">    &lt;artifactId&gt;spring-cloud-starter-openfeign&lt;/artifactId&gt;</span><br><span class="line">&lt;/dependency&gt;</span><br><span class="line"></span><br><span class="line">&lt;-- 新版本需要添加这个依赖 --&gt;</span><br><span class="line">&lt;dependency&gt;</span><br><span class="line">    &lt;groupId&gt;org.springframework.cloud&lt;/groupId&gt;</span><br><span class="line">    &lt;artifactId&gt;spring-cloud-starter-loadbalancer&lt;/artifactId&gt;</span><br><span class="line">&lt;/dependency&gt;</span><br></pre></td></tr></table></figure>
+
+<h4 id="2-启动类添加注解"><a href="#2-启动类添加注解" class="headerlink" title="2. 启动类添加注解"></a>2. 启动类添加注解</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#开启服务调用功能 basePackages调用指明下一步接口所在的包路径</span></span><br><span class="line">@EnableFeignClients(basePackages = <span class="string">&quot;cn.ggb.gulimall.member.feign&quot;</span>)</span><br></pre></td></tr></table></figure>
+
+<h4 id="3-调用者里编写接口"><a href="#3-调用者里编写接口" class="headerlink" title="3. 调用者里编写接口"></a>3. 调用者里编写接口</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">接口上添加该注解 指明需要调哪一个服务</span><br><span class="line">@FeignClient(&quot;xxx&quot;)</span><br></pre></td></tr></table></figure>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2022/05/08/Linux/" rel="prev" title="linux-虚拟机">
+                  <i class="fa fa-chevron-left"></i> linux-虚拟机
+                </a>
+            </div>
+            <div class="post-nav-item">
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 
+  <span itemprop="copyrightYear">2022</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Jonebs</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/pisces/" rel="noopener" target="_blank">NexT.Pisces</a> 强力驱动
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <script src="https://cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script>
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+</body>
+</html>

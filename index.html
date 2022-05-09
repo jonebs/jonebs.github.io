@@ -128,7 +128,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">4</span>
+          <span class="site-state-item-count">5</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -182,7 +182,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2022/05/08/CenOs7/">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2022/05/09/%E5%BE%AE%E6%9C%8D%E5%8A%A1/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="https://ggb01.oss-cn-beijing.aliyuncs.com/100511711.jpg">
@@ -200,7 +200,7 @@
     </span>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
-          <a href="/2022/05/08/CenOs7/" class="post-title-link" itemprop="url">linux-虚拟机</a>
+          <a href="/2022/05/09/%E5%BE%AE%E6%9C%8D%E5%8A%A1/" class="post-title-link" itemprop="url">微服务</a>
         </h2>
 
         <div class="post-meta-container">
@@ -212,7 +212,122 @@
       <span class="post-meta-item-text">发表于</span>
       
 
-      <time title="创建时间：2022-05-08 21:35:08 / 修改时间：22:19:37" itemprop="dateCreated datePublished" datetime="2022-05-08T21:35:08+08:00">2022-05-08</time>
+      <time title="创建时间：2022-05-09 20:36:13 / 修改时间：21:58:41" itemprop="dateCreated datePublished" datetime="2022-05-09T20:36:13+08:00">2022-05-09</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h1 id="一：SpringCloud-Alibaba"><a href="#一：SpringCloud-Alibaba" class="headerlink" title="一：SpringCloud Alibaba"></a>一：SpringCloud Alibaba</h1><h2 id="1-简介"><a href="#1-简介" class="headerlink" title="1. 简介"></a>1. 简介</h2><h4 id="1-1：SpringClouid的几大痛点："><a href="#1-1：SpringClouid的几大痛点：" class="headerlink" title="1.1：SpringClouid的几大痛点："></a><strong>1.1：SpringClouid的几大痛点：</strong></h4><p>SpringCloud部分组件停止维护和更新，给开发带来不便;</p>
+<p>SpringCloud部分环境搭建复杂，没有完善的可视化界面，我们需要大量的二次开发和定制</p>
+<p>SpringCloud配置复杂，难以上手，部分配置差别难以区分和合理应用</p>
+<h4 id="1-2：SpringCloud-Alibaba的优势："><a href="#1-2：SpringCloud-Alibaba的优势：" class="headerlink" title="1.2：SpringCloud Alibaba的优势："></a><strong>1.2：SpringCloud Alibaba的优势：</strong></h4><p>阿里使用过的组件经历了考验，性能强悍，设计合理，现在开源出来大家用</p>
+<p>成套的产品搭配完善的可视化界面给开发运维带来极大的便利</p>
+<p>搭建简单，学习曲线低。</p>
+<h4 id="1-3-结合SpringCloud-Alibaba我们最终的技术搭配方案："><a href="#1-3-结合SpringCloud-Alibaba我们最终的技术搭配方案：" class="headerlink" title="1.3: 结合SpringCloud Alibaba我们最终的技术搭配方案："></a><strong>1.3: 结合SpringCloud Alibaba我们最终的技术搭配方案：</strong></h4><p>SpringCloud Alibaba - Nacos : 注册中心 (服务发现&#x2F;注册)</p>
+<p>SpringCloud Alibaba- Nacos: 配置中心 (动态配置管理)</p>
+<p>SpringCloud - Ribbon: 负载均衡</p>
+<p>SpringCloud - Feign: 声明式HTTP客户端(调用远程服务)</p>
+<p>SpringCloud Alibaba - Sentinel: 服务容错(限流、降级、熔断)</p>
+<p>SpringCloud - Gateway:  API 网关 (webflux 编程模式)</p>
+<p>SpringCloud - Sleuth:调用链监控</p>
+<p>SpringCloud Alibaba - Seata: 原Fescar, 即分布式事务解决方案</p>
+<h2 id="2-Nacos-作为注册中心"><a href="#2-Nacos-作为注册中心" class="headerlink" title="2. Nacos [作为注册中心]"></a>2. Nacos [作为注册中心]</h2><h4 id="1-Nacos-官网"><a href="#1-Nacos-官网" class="headerlink" title="1. Nacos 官网"></a>1. Nacos 官网</h4><p>​	<a target="_blank" rel="noopener" href="https://nacos.io/zh-cn/docs/quick-start.html">官网地址</a></p>
+<h4 id="2-引入依赖"><a href="#2-引入依赖" class="headerlink" title="2. 引入依赖"></a>2. 引入依赖</h4><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>com.alibaba.cloud<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-cloud-starter-alibaba-nacos-discovery<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="3-配置nacos地址和服务名称"><a href="#3-配置nacos地址和服务名称" class="headerlink" title="3.  配置nacos地址和服务名称"></a>3.  配置nacos地址和服务名称</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#在  application.yml 配置文件中（二选一）</span></span><br><span class="line"><span class="comment">#指定 nacos 地址</span></span><br><span class="line">spring:</span><br><span class="line">  cloud:</span><br><span class="line">    nacos:</span><br><span class="line">      discovery:</span><br><span class="line">        server-addr: 127.0.0.1:8848</span><br><span class="line">  <span class="comment">#指定服务名字      </span></span><br><span class="line">  application:</span><br><span class="line">    name: xxx</span><br><span class="line">    </span><br><span class="line">==============================================================================</span><br><span class="line"></span><br><span class="line"><span class="comment">#在  application.properties 配置文件中（二选一）</span></span><br><span class="line"><span class="comment">#指定服务名字</span></span><br><span class="line">spring.application.name=xxx</span><br><span class="line"><span class="comment">#指定 nacos 地址</span></span><br><span class="line">spring.cloud.nacos.discovery.server-addr=127.0.0.1:8848</span><br></pre></td></tr></table></figure>
+
+<h4 id="4-启动类添加注解"><a href="#4-启动类添加注解" class="headerlink" title="4. 启动类添加注解"></a>4. 启动类添加注解</h4> <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#开启服务注册发现功能</span></span><br><span class="line">@EnableDiscoveryClient </span><br></pre></td></tr></table></figure>
+
+<h2 id="3-Nacos-作为配置中心"><a href="#3-Nacos-作为配置中心" class="headerlink" title="3.  Nacos [作为配置中心]"></a>3.  Nacos [作为配置中心]</h2><p><strong>配置中心优先原则 ， 如果配置中心和当前应用的配置文件配置了相同的相，优先使用配置中心的配置</strong></p>
+<h4 id="1-导入依赖"><a href="#1-导入依赖" class="headerlink" title="1. 导入依赖"></a>1. 导入依赖</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">&lt;dependency&gt;</span><br><span class="line">   &lt;groupId&gt;com.alibaba.cloud&lt;/groupId&gt;</span><br><span class="line">   &lt;artifactId&gt;spring-cloud-starter-alibaba-nacos-config&lt;/artifactId&gt;</span><br><span class="line">&lt;/dependency&gt;</span><br><span class="line"></span><br><span class="line">（注：如何无法获取到nacos配置文件，缺少bootstrap依赖）</span><br><span class="line">&lt;dependency&gt;</span><br><span class="line">     &lt;groupId&gt;org.springframework.cloud&lt;/groupId&gt;</span><br><span class="line">     &lt;artifactId&gt;spring-cloud-starter-bootstrap&lt;/artifactId&gt;</span><br><span class="line">     &lt;version&gt;3.0.2&lt;/version&gt;</span><br><span class="line">&lt;/dependency&gt;</span><br><span class="line">```</span><br></pre></td></tr></table></figure>
+
+<h4 id="2-在-nacos-中添加配置"><a href="#2-在-nacos-中添加配置" class="headerlink" title="2. 在 nacos 中添加配置"></a>2. 在 nacos 中添加配置</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">**命名空间:**</span><br><span class="line">用于进行租户粒度的配置隔离。不同的命名空间下，可以存在相同的 **Group** 或 **DatalD** 的配置。**Namespace**  的常用场景之一是不同环境的配置的区分隔离，例如开发测试环境和生产环境的资源(如配置、服务)隔离等。</span><br><span class="line"></span><br><span class="line">**配置集**</span><br><span class="line"></span><br><span class="line">**一组相关或者不相关的配置项的集合称为配置集**。在系统中，一个配置文件通常就是一个配置集，包含了系统各个方面的配置。例如，一个配置集可能包含了数据源、线程池、日志级别等配置项。</span><br><span class="line"></span><br><span class="line">**配置集ID:**</span><br><span class="line"></span><br><span class="line">Nacos 中的某个配置集的 ID，配置集 ID 是组织划分配置的维度之一，**Data ID** 通常用于组织划分系统的配置集，一个系统或者应用可以包含多个配置集，一个系统应用可以包含多个配置集，每个配置集都可以被一个有意义的名称标识，Data ID 通常采用类 Java 包 如 ( com.taobao.tc.refund.log.level ) 的命名规则保证全局唯一性，此命名规则非强制</span><br><span class="line"></span><br><span class="line">**配置分组：**</span><br><span class="line"></span><br><span class="line">Nacos 中的一组配置集，是组织配置的维度之一，通过一个有意义的字符串，(如 Buy 或 Trade ) 对配置集进行分组，从而区分 Data ID 相同的配置集，当您在 Nacos 上创建一个配置时，如果未填写配置分组的名称，则配置分组的名称默认采用，DEFAULT_GROUP 配置分组的常见场景，不同的应用或组件采用了相同的配置类型，如 database_url 配置和 MQ_topic 配置</span><br></pre></td></tr></table></figure>
+
+
+
+<h4 id="3-resource-下-创建bootstrap-properties"><a href="#3-resource-下-创建bootstrap-properties" class="headerlink" title="3. resource 下 创建bootstrap.properties"></a>3. resource 下 创建bootstrap.properties</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">**bootstrap.properties 配置**</span><br><span class="line"></span><br><span class="line">spring.application.name=xxx <span class="comment"># 服务的名称</span></span><br><span class="line">spring.cloud.nacos.config.server-addr=127.0.0.1:8848  <span class="comment"># 服务注册地址</span></span><br><span class="line">spring.cloud.nacos.config.namespace=ae34901c-9215-4409-ae61-c6b8d6c8f9b0  <span class="comment"># 命名空间地址</span></span><br><span class="line"><span class="comment">#spring.cloud.nacos.config.group=111 # 对应分组</span></span><br><span class="line"></span><br><span class="line">spring.cloud.nacos.config.ext-config[0].data-id=datasource.yml  <span class="comment"># 配置集指定data_id</span></span><br><span class="line">spring.cloud.nacos.config.ext-config[0].group=dev               <span class="comment"># 配置集指定 group 分组</span></span><br><span class="line">spring.cloud.nacos.config.ext-config[0].refresh=<span class="literal">true</span>            <span class="comment"># 是否动态刷新 在配置中心修改后 微服务自动刷新</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 新版本用如下格式</span></span><br><span class="line">spring.cloud.nacos.config.extension-configs[0].data-id=datasource.yml</span><br><span class="line">spring.cloud.nacos.config.extension-configs[0].group=dev</span><br><span class="line">spring.cloud.nacos.config.extension-configs[0].refresh=<span class="literal">true</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">```</span><br></pre></td></tr></table></figure>
+
+<h4 id="4-Controller中添加注解"><a href="#4-Controller中添加注解" class="headerlink" title="4. Controller中添加注解"></a>4. Controller中添加注解</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#刷新对应controller（修改了nacos配置文件内容后，在不重启服务器的情况下，可以实现同步更新）</span></span><br><span class="line">@RefreshScope</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="4-Feign-调用远程服务"><a href="#4-Feign-调用远程服务" class="headerlink" title="4. Feign[调用远程服务]"></a>4. Feign[调用远程服务]</h2><p><strong>前提: 服务都要被注册进注册中心</strong></p>
+<h4 id="1-导入依赖-1"><a href="#1-导入依赖-1" class="headerlink" title="1. 导入依赖"></a>1. 导入依赖</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#旧版本导入一个就行</span></span><br><span class="line">&lt;dependency&gt;</span><br><span class="line">    &lt;groupId&gt;org.springframework.cloud&lt;/groupId&gt;</span><br><span class="line">    &lt;artifactId&gt;spring-cloud-starter-openfeign&lt;/artifactId&gt;</span><br><span class="line">&lt;/dependency&gt;</span><br><span class="line"></span><br><span class="line">&lt;-- 新版本需要添加这个依赖 --&gt;</span><br><span class="line">&lt;dependency&gt;</span><br><span class="line">    &lt;groupId&gt;org.springframework.cloud&lt;/groupId&gt;</span><br><span class="line">    &lt;artifactId&gt;spring-cloud-starter-loadbalancer&lt;/artifactId&gt;</span><br><span class="line">&lt;/dependency&gt;</span><br></pre></td></tr></table></figure>
+
+<h4 id="2-启动类添加注解"><a href="#2-启动类添加注解" class="headerlink" title="2. 启动类添加注解"></a>2. 启动类添加注解</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#开启服务调用功能 basePackages调用指明下一步接口所在的包路径</span></span><br><span class="line">@EnableFeignClients(basePackages = <span class="string">&quot;cn.ggb.gulimall.member.feign&quot;</span>)</span><br></pre></td></tr></table></figure>
+
+<h4 id="3-调用者里编写接口"><a href="#3-调用者里编写接口" class="headerlink" title="3. 调用者里编写接口"></a>3. 调用者里编写接口</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">接口上添加该注解 指明需要调哪一个服务</span><br><span class="line">@FeignClient(&quot;xxx&quot;)</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2022/05/08/Linux/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="https://ggb01.oss-cn-beijing.aliyuncs.com/100511711.jpg">
+      <meta itemprop="name" content="Jonebs">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="GGB's Blog">
+      <meta itemprop="description" content="GGB">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | GGB's Blog">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2022/05/08/Linux/" class="post-title-link" itemprop="url">linux-虚拟机</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2022-05-08 21:35:08" itemprop="dateCreated datePublished" datetime="2022-05-08T21:35:08+08:00">2022-05-08</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2022-05-09 20:03:09" itemprop="dateModified" datetime="2022-05-09T20:03:09+08:00">2022-05-09</time>
     </span>
 
   
@@ -256,7 +371,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2022/05/08/weifuwu/">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2022/05/08/function/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="https://ggb01.oss-cn-beijing.aliyuncs.com/100511711.jpg">
@@ -274,7 +389,7 @@
     </span>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
-          <a href="/2022/05/08/weifuwu/" class="post-title-link" itemprop="url">weifuwu</a>
+          <a href="/2022/05/08/function/" class="post-title-link" itemprop="url">GUliMall-fuction</a>
         </h2>
 
         <div class="post-meta-container">
@@ -287,6 +402,13 @@
 
       <time title="创建时间：2022-05-08 15:25:51" itemprop="dateCreated datePublished" datetime="2022-05-08T15:25:51+08:00">2022-05-08</time>
     </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2022-05-09 13:35:20" itemprop="dateModified" datetime="2022-05-09T13:35:20+08:00">2022-05-09</time>
+    </span>
 
   
 </div>
@@ -298,7 +420,11 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          
+          <h1 id="1-三级分类接口编写"><a href="#1-三级分类接口编写" class="headerlink" title="1.三级分类接口编写"></a>1.三级分类接口编写</h1><h3 id="1-1-三级分类接口编写"><a href="#1-1-三级分类接口编写" class="headerlink" title="1.1 三级分类接口编写"></a>1.1 三级分类接口编写</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 返回查询所有分类以及子子分类，以树形结构组装起来    </span></span><br><span class="line">List&lt;CategoryEntity&gt; <span class="title function_">listWithTree</span><span class="params">()</span>;</span><br></pre></td></tr></table></figure>
+
+<p>实现类：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Override</span></span><br><span class="line">  <span class="keyword">public</span> List&lt;CategoryEntity&gt; <span class="title function_">listWithTree</span><span class="params">()</span> &#123;</span><br><span class="line">      <span class="comment">// 1、查出所有分类 设置为null查询全部</span></span><br><span class="line">      List&lt;CategoryEntity&gt; entities = baseMapper.selectList(<span class="literal">null</span>);</span><br><span class="line"></span><br><span class="line">      <span class="comment">// 2、组装成父子的树形结构</span></span><br><span class="line">      List&lt;CategoryEntity&gt; levelList = entities.stream().filter(categoryEntity -&gt; &#123;</span><br><span class="line">          <span class="comment">// parentCid ==0 为父目录默认0</span></span><br><span class="line">          <span class="keyword">return</span> categoryEntity.getParentCid() == <span class="number">0</span>;</span><br><span class="line">      &#125;).map(menu -&gt; &#123;</span><br><span class="line">          <span class="comment">// 设置二三级分类 递归</span></span><br><span class="line">          menu.setChildren(getChildrens(menu,entities));</span><br><span class="line">          <span class="keyword">return</span> menu;</span><br><span class="line">      &#125;).sorted((menu1, menu2) -&gt; &#123;</span><br><span class="line">          <span class="comment">//  排序 Sort字段排序</span></span><br><span class="line">          <span class="keyword">return</span> (menu1.getSort() == <span class="literal">null</span> ? <span class="number">0</span> : menu1.getSort()) - (menu2.getSort() == <span class="literal">null</span> ? <span class="number">0</span> : menu2.getSort());</span><br><span class="line">      &#125;).collect(Collectors.toList());</span><br><span class="line"></span><br><span class="line">      <span class="keyword">return</span> levelList;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">   *  递归查询子分类</span></span><br><span class="line"><span class="comment">   * <span class="doctag">@param</span> root 当前category对象</span></span><br><span class="line"><span class="comment">   * <span class="doctag">@param</span> all  全部分类数据</span></span><br><span class="line"><span class="comment">   * <span class="doctag">@return</span></span></span><br><span class="line"><span class="comment">   */</span></span><br><span class="line">  <span class="keyword">private</span> List&lt;CategoryEntity&gt; <span class="title function_">getChildrens</span><span class="params">(CategoryEntity root, List&lt;CategoryEntity&gt; all)</span> &#123;</span><br><span class="line"></span><br><span class="line">      List&lt;CategoryEntity&gt; collect = all.stream().filter(categoryEntity -&gt; &#123;</span><br><span class="line">          <span class="comment">// 遍历所有的category对象的父类id = 等于root的分类id 说明是他的子类</span></span><br><span class="line">          <span class="keyword">return</span> categoryEntity.getParentCid() == root.getCatId();</span><br><span class="line">      &#125;).map(menu -&gt; &#123;</span><br><span class="line">          <span class="comment">// 1、递归遍历菜单</span></span><br><span class="line">          menu.setChildren(getChildrens(menu, all));</span><br><span class="line">          <span class="keyword">return</span> menu;</span><br><span class="line">      &#125;).sorted((menu1, menu2) -&gt; &#123;</span><br><span class="line">          <span class="comment">// 2、菜单排序</span></span><br><span class="line">          <span class="keyword">return</span> (menu1.getSort() == <span class="literal">null</span> ? <span class="number">0</span> : menu1.getSort()) - (menu2.getSort() == <span class="literal">null</span> ? <span class="number">0</span> : menu2.getSort());</span><br><span class="line">      &#125;).collect(Collectors.toList());</span><br><span class="line"></span><br><span class="line">      <span class="keyword">return</span> collect;</span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure>
+
       
     </div>
 
@@ -324,7 +450,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2022/05/08/Mall-0/">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2022/05/08/Docker/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="https://ggb01.oss-cn-beijing.aliyuncs.com/100511711.jpg">
@@ -342,7 +468,7 @@
     </span>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
-          <a href="/2022/05/08/Mall-0/" class="post-title-link" itemprop="url">docker</a>
+          <a href="/2022/05/08/Docker/" class="post-title-link" itemprop="url">docker</a>
         </h2>
 
         <div class="post-meta-container">
@@ -352,9 +478,15 @@
         <i class="far fa-calendar"></i>
       </span>
       <span class="post-meta-item-text">发表于</span>
-      
 
-      <time title="创建时间：2022-05-08 12:40:30 / 修改时间：15:20:36" itemprop="dateCreated datePublished" datetime="2022-05-08T12:40:30+08:00">2022-05-08</time>
+      <time title="创建时间：2022-05-08 12:40:30" itemprop="dateCreated datePublished" datetime="2022-05-08T12:40:30+08:00">2022-05-08</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2022-05-09 20:03:05" itemprop="dateModified" datetime="2022-05-09T20:03:05+08:00">2022-05-09</time>
     </span>
 
   
@@ -451,7 +583,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2022-05-08 21:58:24" itemprop="dateModified" datetime="2022-05-08T21:58:24+08:00">2022-05-08</time>
+      <time title="修改时间：2022-05-09 12:48:37" itemprop="dateModified" datetime="2022-05-09T12:48:37+08:00">2022-05-09</time>
     </span>
 
   
